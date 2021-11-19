@@ -3,8 +3,8 @@ body {
   color: aliceblue;
 }
 .movie-app > .row {
-  overflow-x: auto;
-  flex-wrap: nowrap;
+  /* overflow-x: auto; */
+  /* flex-wrap: nowrap; */
 }
 
 .image-container {
@@ -21,10 +21,10 @@ body {
 }
 
 .overlay {
+  width: 300px;
   position: absolute;
   transition: 0.5s ease;
   opacity: 0;
   /* bottom: 0; */
   top: 0;
-  text-align: center;
 }

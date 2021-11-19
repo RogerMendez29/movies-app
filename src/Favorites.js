@@ -1,17 +1,33 @@
-import { React, useEffect } from "react";
+import { React, useEffect, useState } from "react";
 
-function Favorites({ favorites, setFavorites }) {
-  fetch(`http://localhost:3000/favorites`)
-    .then((res) => res.json())
-    .then((data) => setFavorites(data));
+function Favorites() {
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    getFavorites();
+  }, []);
+
+  function getFavorites() {
+    fetch(`http://localhost:3000/favorites`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFavorites(data);
+      });
+  }
 
   function deleteFromFav(id) {
     fetch(` http://localhost:3000/favorites/${id}`, {
       method: "DELETE",
+    }).then(() => {
+      setFavorites((favorites) =>
+        favorites.filter((fav) => {
+          return fav.id !== id;
+        })
+      );
     });
   }
 
-  const maxMoviesPerRow = 6;
+  const maxMoviesPerRow = 4;
 
   function createLayout() {
     const numMovies = favorites.length;
@@ -46,16 +62,15 @@ function Favorites({ favorites, setFavorites }) {
       movieRow.push(
         <div className=" image-container col">
           <img alt={movie.Title} src={movie.Poster}></img>
+          <h2>{movie.Title}</h2>
+          <p>{movie.Year}</p>
           <div className="overlay d-flex align-items-center justify-content center">
             <button
               onClick={() => deleteFromFav(movie.id)}
               type="button"
-              className="btn btn-warning"
+              className="btn btn-warning justify-content-center"
             >
               Delete From Favorites
-            </button>
-            <button type="button" className="btn btn-warning">
-              More Info
             </button>
           </div>
         </div>

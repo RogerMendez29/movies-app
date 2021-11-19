@@ -1,4 +1,60 @@
 {
-  "users": [],
-  "favorites": []
+  "favorites": [
+    {
+      "Title": "Just Add Water",
+      "Year": "2008",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BYjQ4ZDU5NjgtNTgyNS00NzViLThhYzctMTg3NGZmNzMwODA3XkEyXkFqcGdeQXVyMTQ3Njg3MQ@@._V1_SX300.jpg",
+      "id": 1
+    },
+    {
+      "Title": "Just Add Magic",
+      "Year": "2015–",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMDczMjEwMDYtNjQ3NS00NjE2LTkxM2MtOTc0ZWY0YjkwZTcxXkEyXkFqcGdeQXVyNjI4OTg2Njg@._V1_SX300.jpg",
+      "id": 2
+    },
+    {
+      "Title": "Hamlet A.D.D.",
+      "Year": "2014",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMTc1NzQ5NjM0NV5BMl5BanBnXkFtZTgwMjgxMTI1MTE@._V1_SX300.jpg",
+      "id": 4
+    },
+    {
+      "Title": "Add Me",
+      "Year": "2015",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMjE4MDg0MjA1OV5BMl5BanBnXkFtZTgwMjk2MDA0NzE@._V1_SX300.jpg",
+      "id": 5
+    },
+    {
+      "Title": "Just Add Romance",
+      "Year": "2019",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BYTc1MTBkNTItMDA2Yy00M2M1LWFmMjAtOGY4ZjA4NjI0YmNjXkEyXkFqcGdeQXVyMjgzMzAzMjE@._V1_SX300.jpg",
+      "id": 6
+    },
+    {
+      "Title": "Just Add Magic",
+      "Year": "2015–",
+      "Type": "series",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BMDczMjEwMDYtNjQ3NS00NjE2LTkxM2MtOTc0ZWY0YjkwZTcxXkEyXkFqcGdeQXVyNjI4OTg2Njg@._V1_SX300.jpg",
+      "id": 7
+    },
+    {
+      "Title": "",
+      "Year": "",
+      "Type": "Video Game",
+      "Poster": "https://pbs.twimg.com/profile_images/1331428286799380480/-q_q4_xK_400x400.jpg",
+      "id": 8
+    },
+    {
+      "Title": "The Bachelor and the Bobby-Soxer",
+      "Year": "1947",
+      "Type": "movie",
+      "Poster": "https://m.media-amazon.com/images/M/MV5BZGMyNDVkZmMtYmFlYi00NmQ0LWI3MjEtNWU1OTA3ZjM1MjZhL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjE5MjUyOTM@._V1_SX300.jpg",
+      "id": 9
+    }
+  ]
 }

@@ -1,6 +1,10 @@
 import { useState, React } from "react";
 
 function AddOn() {
+  const defaultImage =
+    "https://static.facegfx.com/vector/2013/12/12/facegfx-vector-different-film-and-movie-mix-vector-04.jpg";
+  const [success, setSuccess] = useState([]);
+  const [error, setError] = useState([]);
   const [formData, setformData] = useState({
     Title: "",
     Year: "",
@@ -8,19 +12,48 @@ function AddOn() {
     Poster: "",
   });
   function handleChange(event) {
-    console.log(event.target.value);
-
     setformData({ ...formData, [event.target.name]: event.target.value });
   }
   function handleSubmit(event) {
-    event.preventDefault();
     console.log(formData);
-    fetch(" http://localhost:3000/favorites", {
-      method: "POST",
 
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    event.preventDefault();
+    if (formData.Title.length > 0) {
+      if (formData.Year.length > 3) {
+        if (formData.Poster.length === 0) {
+          formData.Poster = defaultImage;
+          fetch(" http://localhost:3000/favorites", {
+            method: "POST",
+
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+          setError([]);
+          setSuccess(["Succesful Addition"]);
+          formData.Poster = "";
+        } else {
+          fetch(" http://localhost:3000/favorites", {
+            method: "POST",
+
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+          setError([]);
+          setSuccess(["Succesful Addition"]);
+        }
+      } else {
+        setError(["Year is Required & must be a 4 digit number!"]);
+        setSuccess([]);
+      }
+    } else {
+      setError(["Title is Required"]);
+      setSuccess([]);
+
+      if (formData.Year.length <= 3) {
+        setError(["Title is Required & Year must be four digits"]);
+        setSuccess([]);
+      }
+    }
   }
   return (
     <div className="container w-50  text-light">
@@ -73,17 +106,34 @@ function AddOn() {
             type="url"
             className="form-control"
             id="floatingImage"
-            placeholder="Url"
+            placeholder="url"
             value={formData.Poster}
             onChange={handleChange}
           />
-          <label>Poster</label>
+          <label>Image url</label>
         </div>
 
         <button className="  w-100 btn btn-lg btn-primary" type="submit">
           Submit
         </button>
       </form>
+      {console.log(error)}
+      <div>
+        {error.length > 0
+          ? error.map((error, index) => (
+              <p key={index} style={{ color: "red" }}>
+                {error}
+              </p>
+            ))
+          : null}
+        {success.length > 0
+          ? success.map((success, index) => (
+              <p key={index} style={{ color: "green" }}>
+                {success}
+              </p>
+            ))
+          : null}
+      </div>
     </div>
   );
 }
